@@ -1,0 +1,5 @@
+twint
+nest_asyncio
+fastapi[all]
+uvicorn
+git+https://github.com/twintproject/twint.git@origin/master#egg=twint
