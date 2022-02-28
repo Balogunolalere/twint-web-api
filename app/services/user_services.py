@@ -1,8 +1,8 @@
 from typing import Optional
 import twint
-import nest_asyncio
 
-nest_asyncio.apply()
+# import asyncio
+# asyncio.set_event_loop(asyncio.new_event_loop())
 
 c = twint.Config()
 
@@ -13,7 +13,7 @@ def search_user(
     retweets: Optional[bool],
     limit: Optional[int],
     store_object: bool
-) -> dict:
+):
     
     if user_id:
         c.Username = username
@@ -55,7 +55,7 @@ def get_profile(
     user_id: Optional[str],
     user_full: bool,
     store_object: bool
-) -> dict :
+):
     
     if user_id:
         c.Username = username
@@ -79,7 +79,7 @@ def get_user_followers(
     user_full: Optional[bool],
     resume: Optional[str],
     store_object: bool
-) -> dict:
+):
     
     if user_id:
         c.Username = username
@@ -122,7 +122,7 @@ def get_user_following(
     user_full: Optional[bool],
     resume: Optional[str],
     store_object: bool
-) -> dict:
+):
     
     if user_id:
         c.Username = username

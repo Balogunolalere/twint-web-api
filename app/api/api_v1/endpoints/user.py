@@ -1,18 +1,18 @@
-from fastapi import APIRouter
-from models.user_model import *
-from services.user_services import *
+from fastapi import APIRouter, Depends
+from app.models.user_model import User, UserFollowers, UserFollowing, UserProfile
+from app.services.user_services import *
 
 router = APIRouter()
 
 
 @router.get('/')
-async def search_username(user : User):
-    resp = search_user(**user)
+async def search_username(user: User = Depends()):
+    resp = await search_user(*user)
     return resp
 
 @router.get('/profile/')
-async def get_user_profile(profile: UserProfile):
-    resp = get_profile(**profile)
+async def get_user_profile(profile: UserProfile = Depends()):
+    resp = await get_profile(*profile)
     return resp
 
 # @router.get('/{}/followers')
